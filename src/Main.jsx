@@ -18,7 +18,6 @@ function Main() {
 
   const navigate = useNavigate();
   const { user } = useAuthContext();
-  const userEmail = user.email;
   const handleLogout = () => {
     auth.signOut();
     navigate("/login");
@@ -26,6 +25,7 @@ function Main() {
   if (!user) {
     return <Navigate to="/login" />;
   } else {
+    const userEmail = user.email;
     return (
       <AuthProvider>
         <div className="c-section">
